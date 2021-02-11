@@ -8,7 +8,7 @@ El puntaje mínimo es 0
 Si con las reglas anteriores sobrepasa 500 puntos, el puntaje es 500. 
 * @params  correctCount int represents correct guessed characters 
 * @params incorrectCount, int represents incorrect guessed characters
-* @pos int , return score of game
+* @pos int , return score of the game
 * @throws trows exeptions when count < 0
 */
 
