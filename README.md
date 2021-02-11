@@ -1,3 +1,14 @@
+### readme lorenzo y nicolas
+para correr proyecto
+    
+
+
+mvn exec:java -Dexec.mainClass="hangman.SwingProject"
+
+
+
+### readme profesor
+
 ### Escuela Colombiana de Ingeniería
 
 ### Procesos de Desarrollo de Software
