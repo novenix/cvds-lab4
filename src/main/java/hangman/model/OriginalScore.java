@@ -8,6 +8,8 @@ public class OriginalScore implements GameScore {
     * @params incorrectCount, int represents incorrect guessed characters
     * @throws trows exeptions when count < 0
     */
-   public int calculateScore(int correctCount ,int incorrectCount)
+   public int calculateScore(int correctCount ,int incorrectCount){
+       return 0;
+   };
 
 }

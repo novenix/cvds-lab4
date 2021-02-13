@@ -7,6 +7,6 @@ public interface GameScore {
 * @pos int , return score of game
 * @throws trows exeptions when count < 0
 */
-   public int calculateScore(int correctCount ,int incorrectCount)
+   public int calculateScore(int correctCount ,int incorrectCount) throws GameScoreExeption;
 
 }

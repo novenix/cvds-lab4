@@ -4,7 +4,57 @@ para correr proyecto
 
 
 mvn exec:java -Dexec.mainClass="hangman.SwingProject"
+## punto 6
+```
 
+ * OriginalScore
+  clases de equivalencia
+ 
+  failValue = 10;
+      #equivalencia |                 Clases de Equivalencia           |        resultado 
+                    |                                                  |                  
+           1.       |           correctCount>= 0 ^ incorrectCount=0    |              score=100 
+           2.       |          incorrectCount < 0                      |   Incorrect throw NUMBER_UNDER_0        
+           3.       |          correctCount>= 0 ^  0<incorrectCount<=10| score-(incorrectCount*failValue)
+           4.       |            correctCount < 0                      |   Exeption throw NUMBER_UNDER_0            
+           5.       |      correctCount>= 0 ^  incorrectCount>10       |                score= 0
+
+```
+
+```
+ /
+  *BonusScore
+    bonification = 10;
+    failValue = 5;
+  
+#equivalencia |                 Clases de Equivalencia                             |        resultado 
+         |                                                                         |                  
+1.       |   2*incorrectCount>= correctCount^incorrectCount >=0  ^ correctCount>=0 |             score=  0 
+2.       |         correctCount < 0                                                |incorrect throw NUMBER_UNDER_0        
+3.       |incorrectCount >=0 ^incorrectCount< correctCount^ correctCount>=0        |score+ ((correctCount *bonification)-
+         |                                                                          |(incorrectCount* failValue ))
+4.       |            incorrectCount < 0                                           |   incorrect throw NUMBER_UNDER_0           
+
+ 
+  
+```
+
+```
+ 
+ * PowerBonusScore
+failValue = 8;
+bonification = 5^correctCount;
+ 
+  
+#equivalencia |                 Clases de Equivalencia                      |        resultado 
+         |                                                                  |                  
+1.       |   incorrectCount < 0                                             | Incorrect throw NUMBER_UNDER_0   
+2.       |         correctCount < 0                                         | Incorrect throw NUMBER_UNDER_0        
+3.       |incorrectCount >= 0 ^  correctCount=0                             | score=0
+4.       |    incorrectCount = 0 ^  correctCount>=4                         | score=500
+5.       | incorrectCount > 0 ^  correctCount>0                             |score +(sum(5^correctCount) - incorrectCount*failValue )          
+
+```
 
 
 ### readme profesor

@@ -13,6 +13,8 @@ public class BonusScore implements GameScore {
      */
    
 
-   public int calculateScore(int correctCount ,int incorrectCount)
+   public int calculateScore(int correctCount ,int incorrectCount){
+     return 0;
+   };
 
 }
