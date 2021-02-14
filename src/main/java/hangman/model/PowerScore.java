@@ -11,7 +11,6 @@ Si con las reglas anteriores sobrepasa 500 puntos, el puntaje es 500.
 * @pos int , return score of the game
 * @throws trows exeptions when count < 0
 */
-  
 
     private int bonification = 5;
     private int failValue= 8;
@@ -33,6 +32,5 @@ Si con las reglas anteriores sobrepasa 500 puntos, el puntaje es 500.
         score =( score > maxSc )? maxSc :  score ;
         return score;
    };
-   
 
 }

@@ -11,7 +11,9 @@ public class GameScoreTest {
     private GameScore powerBonus = new PowerScore();
     private GameScore originalSc = new OriginalScore();
    
-
+    /*
+    Power
+     */
     @Test
     public void abovePowerScore() throws GameScoreExeption {
         
@@ -19,25 +21,22 @@ public class GameScoreTest {
         int score = powerBonus.calculateScore(4,0);
         Assert.assertTrue(score == 500);
     }
+
     @Test
     public void belowPowerScore(){
         //cuando etan con valores menores a 0
          try{
-            powerBonus.calculateScore(-1,-100);
+             powerBonus.calculateScore(-1,-100);
         }
         catch( Exception e ){
-            Assert.assertTrue( true );
+             Assert.assertTrue( true );
         }
-        
-        
     }
-     @Test
+
+    @Test
     public void score0PowerScore() throws GameScoreExeption {
-        
         int score = powerBonus.calculateScore(0,15);
         Assert.assertEquals(score,0);
-        
-        
     }
 
     @Test
@@ -47,26 +46,52 @@ public class GameScoreTest {
         Assert.assertEquals(score,276);
 
     }
-    @Test
-    public void belowOriginalScore(){
-        Assert.assertTrue(true);
-    }
 
+    /*
+    Bonus
+    */
     @Test
     public void belowBonusScore(){
-        Assert.assertTrue(true);
+        try{
+            bonusSc.calculateScore(-1,-100);
+        }
+        catch( Exception e ){
+            Assert.assertTrue( true );
+        }
     }
     @Test
-    public void caseOriginalScore(){
-        Assert.assertTrue(true);
+    public void onPointBonusScore() throws GameScoreExeption{
+        int score = bonusSc.calculateScore(2,6);
+        Assert.assertEquals(score,0);
     }
     @Test
-    public void caseBonusScore(){
-        Assert.assertTrue(true);
+    public void caseBonusScore() throws GameScoreExeption{
+        int score = bonusSc.calculateScore(2,3);
+        Assert.assertEquals(score,5);
+    }
+
+    /*
+    Original
+     */
+    @Test
+    public void caseOriginalScore()  throws GameScoreExeption{
+       int score = originalSc.calculateScore(1,2);
+        Assert.assertEquals(score,80);
     }
     @Test
-    public void casePowerScore(){
-        Assert.assertTrue(true);
+    public void belowOriginalScore()  throws GameScoreExeption{
+         try{
+            originalSc.calculateScore(-1,-100);
+        }
+        catch( Exception e ){
+            Assert.assertTrue( true );
+        }
     }
+     @Test
+    public void caseOriginalScoreminimumvalue()  throws GameScoreExeption{
+       int score = originalSc.calculateScore(1,11);
+        Assert.assertEquals(score,0);
+    }
+
 
 }
