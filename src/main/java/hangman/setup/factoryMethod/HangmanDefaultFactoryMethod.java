@@ -1,25 +1,37 @@
 package hangman.setup.factoryMethod;
 
-import hangman.model.English;
-import hangman.model.Language;
-import hangman.model.dictionary.EnglishDictionaryDataSource;
-import hangman.model.dictionary.HangmanDictionary;
-import hangman.view.HangmanPanel;
-import hangman.view.HangmanStickmanPanel;
+import hangman.setup.guice.*;
+import hangman.model.*;
+import hangman.model.dictionary.*;
+import hangman.view.*;
+
+
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+
+
+import static sun.misc.Version.print;
 
 public class HangmanDefaultFactoryMethod extends HangmanFactoryMethod {
     @Override
     public Language createLanguage() {
-        return new English();
+        Injector injector = Guice.createInjector(new HangmanFactoryServices());
+        return injector.getInstance(Language.class);
+        //return new English();
     }
 
     @Override
     public HangmanDictionary createDictionary() {
-        return new EnglishDictionaryDataSource();
+        Injector injector = Guice.createInjector(new HangmanFactoryServices());
+        return injector.getInstance(HangmanDictionary.class);
+        //return new EnglishDictionaryDataSource();
     }
 
     @Override
     public HangmanPanel createHangmanPanel() {
-        return new HangmanStickmanPanel();
+        Injector injector = Guice.createInjector(new HangmanFactoryServices());
+        return injector.getInstance(HangmanPanel.class);
+        //return new HangmanStickmanPanel();
     }
 }

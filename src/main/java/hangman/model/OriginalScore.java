@@ -11,6 +11,7 @@ public class OriginalScore implements GameScore {
     private int score = 100;
     private int failValue=10;
     private int minSc=0;
+    @Override
     public int calculateScore(int correctCount ,int incorrectCount) throws GameScoreExeption{
 
        if( correctCount < minSc || incorrectCount <minSc ){
